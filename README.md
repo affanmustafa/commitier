@@ -128,10 +128,6 @@ You can manually edit this list to customize your commit prefixes.
 
 In the future, Commitier will be packaged as an npm module for easier installation and use.
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 ## Author
 
 Affan Mustafa
