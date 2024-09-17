@@ -14,6 +14,11 @@ pub enum Command {
         #[structopt(long, help = "Create a Git commit")]
         create_commit: bool,
     },
+    CheckCommits {
+        #[structopt(short, long, default_value = "5", help = "Number of commits to display")]
+        count: u32,
+    },
+    Help,
 }
 
 pub fn prompt_prefixes() -> Vec<String> {
