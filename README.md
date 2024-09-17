@@ -62,6 +62,14 @@ cargo run init
 
 This will prompt you to set up your preferred commit message prefixes.
 
+### Stage the files
+
+```bash
+git add .
+```
+
+This will stage all the files in the current directory.
+
 ### Creating a Commit Message
 
 To generate a commit message:
