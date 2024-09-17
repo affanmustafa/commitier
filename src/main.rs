@@ -1,5 +1,4 @@
 mod cli;
-mod commit;
 mod config;
 
 use structopt::StructOpt;
@@ -24,7 +23,7 @@ fn main() {
             let commit_type = cli::prompt_commit_type(&config.prefixes);
             let description = cli::prompt_description();
             
-            let commit_message = commit::generate_commit_message(commit_type, description);
+            let commit_message = generate_commit_message(commit_type, description);
             
             if create_commit {
                 match create_git_commit(&commit_message) {
@@ -92,4 +91,8 @@ fn check_commits(count: u32) -> Result<(), git2::Error> {
     }
     
     Ok(())
+}
+
+pub fn generate_commit_message(commit_type: String, description: String) -> String {
+    format!("{} {}", commit_type, description)
 }

@@ -6,7 +6,9 @@
   "commitier-prefixes": [
     "feat:",
     "fix:",
-    "docs:"
+    "docs:",
+    "chore:",
+    "refactor:"
   ],
   "dependencies": {
     "binary-install": "^1.0.1"
