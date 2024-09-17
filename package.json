@@ -5,7 +5,7 @@
   },
   "commitier-prefixes": [
     "feat:",
-    "docs:",
+    "fix:",
     "chore:"
   ],
   "dependencies": {

@@ -10,8 +10,10 @@ pub struct Cli {
 #[derive(Debug, StructOpt)]
 pub enum Command {
     Init,
-    Commit,
-    Help,
+    Commit {
+        #[structopt(long, help = "Create a Git commit")]
+        create_commit: bool,
+    },
 }
 
 pub fn prompt_prefixes() -> Vec<String> {
