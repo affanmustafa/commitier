@@ -25,8 +25,11 @@ fn main() {
             
             let commit_message = commit::generate_commit_message(commit_type, description);
             
-            println!("\nGenerated commit message:");
+            println!("--- Generated Commit Message ---");
             println!("{}", commit_message);
+            println!("--------------------------------");
+            println!("To use this commit message with Git, run:");
+            println!("git commit -m \"{}\"", commit_message.replace("\"", "\\\""));
         }
     }
 }

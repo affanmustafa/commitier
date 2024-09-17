@@ -1,38 +1,27 @@
-const { Binary } = require('binary-install');
-const os = require('os');
 const { join } = require('path');
+const { execFileSync } = require('child_process');
+const fs = require('fs');
 
-const getPlatform = () => {
-	const type = os.type();
-	const arch = os.arch();
-
-	if (type === 'Windows_NT' && arch === 'x64') return 'win64';
-	if (type === 'Linux' && arch === 'x64') return 'linux';
-	if (type === 'Darwin' && arch === 'x64') return 'macos';
-
-	throw new Error(`Unsupported platform: ${type} ${arch}`);
-};
-
-const getBinary = () => {
-	const platform = getPlatform();
-	const version = require('./package.json').version;
-	const url = `https://github.com/affanmustafa/commitier/releases/download/v${version}/commitier-${platform}.tar.gz`;
-	const installDirectory = join(__dirname, 'bin');
-
-	return new Binary('commitier', url, installDirectory);
+const getBinaryPath = () => {
+	const binaryName =
+		process.platform === 'win32' ? 'commitier.exe' : 'commitier';
+	const binaryPath = join(__dirname, 'target', 'release', binaryName);
+	console.log('Binary path:', binaryPath);
+	console.log('Binary exists:', fs.existsSync(binaryPath));
+	return binaryPath;
 };
 
 const run = (args) => {
-	const binary = getBinary();
-	binary.run(args);
+	const binaryPath = getBinaryPath();
+	console.log('Executing binary with args:', args);
+	try {
+		const output = execFileSync(binaryPath, args, { encoding: 'utf8' });
+		console.log('Binary output:', output);
+	} catch (error) {
+		console.error(`Error executing binary: ${error.message}`);
+		console.error('Error stack:', error.stack);
+		process.exit(1);
+	}
 };
 
-const install = () => {
-	const binary = getBinary();
-	binary.install();
-};
-
-module.exports = {
-	install,
-	run,
-};
+module.exports = { run };

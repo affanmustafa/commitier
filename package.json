@@ -1,23 +1,26 @@
 {
-	"name": "commitier",
-	"version": "1.0.0",
-	"main": "index.js",
+  "author": "Affan Mustafa",
   "bin": {
-    "rust-commitizen": "./cli.js"
+    "commitier": "./cli.js"
   },
-  "scripts": {
-    "postinstall": "node install.js"
-  },
+  "commitier-prefixes": [
+    "feat:",
+    "docs:",
+    "chore:"
+  ],
   "dependencies": {
     "binary-install": "^1.0.1"
   },
+  "description": "A CLI tool for better commit messages",
   "files": [
     "index.js",
     "cli.js",
-    "install.js"
+    "target/release/commitier",
+    "target/release/commitier.exe"
   ],
-	"keywords": [],
-	"author": "Affan Mustafa",
-	"license": "MIT",
-	"description": "A CLI tool for better commit messages"
+  "keywords": [],
+  "license": "MIT",
+  "main": "index.js",
+  "name": "commitier",
+  "version": "1.0.0"
 }
