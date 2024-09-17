@@ -5,8 +5,8 @@
   },
   "commitier-prefixes": [
     "feat:",
-    "chore:",
-    "release:"
+    "fix:",
+    "docs:"
   ],
   "dependencies": {
     "binary-install": "^1.0.1"
