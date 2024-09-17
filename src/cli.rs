@@ -11,6 +11,7 @@ pub struct Cli {
 pub enum Command {
     Init,
     Commit,
+    Help,
 }
 
 pub fn prompt_prefixes() -> Vec<String> {

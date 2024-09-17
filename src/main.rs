@@ -31,5 +31,12 @@ fn main() {
             println!("To use this commit message with Git, run:");
             println!("git commit -m \"{}\"", commit_message.replace("\"", "\\\""));
         }
+        cli::Command::Help => {
+            println!("Usage: commitier <command>");
+            println!("Commands:");
+            println!("  init - Initialize the commitier configuration");
+            println!("  commit - Generate a commit message");
+            println!("  help - Show this help message");
+        }
     }
 }
